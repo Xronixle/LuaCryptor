@@ -61,7 +61,7 @@ function Random:__AddToBatch()
      local Total = #self.Batch
      math.randomseed(self.Seed)
 
-     for i = 1, 500, 1 do
+     for i = 1, 100, 1 do
           self.Batch[Total + i] = math.random(0, 1e6) / 1e6
      end
 
