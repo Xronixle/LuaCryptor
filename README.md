@@ -3,7 +3,7 @@ An encryptor and decryptor created in Lua.
 
 Comes with a demonstration file ([demo.lua](<https://github.com/Xronixle/LuaEncryption/blob/main/demo.lua>)) to showcase what it does and a benchmarking file ([benchmark.lua](<https://github.com/Xronixle/LuaEncryption/blob/main/benchmark.lua>)) to see if it's something you'd be interested in.
 
-This spawned from a failed concept for another way of encrypting messages that came to me at 4 a.m one day.
+This spawned from a failed concept for another way of encrypting messages that came to me at 4 a.m one day. (This one might be coming soon once I get around to reconceptualizing it.)
 
 # How does it work?
 In very short form, the encryption is performed using the key's binary and the key's PRNG (Pseudo-random number generator.) A character set is created using the key's PRNG to shuffle the characters around while a piece of the key's binary is used as a salt. The decryption process essentially is the reverse of this; decryption removes the salt then unshuffles the message.
