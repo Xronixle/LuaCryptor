@@ -29,7 +29,8 @@ function BinaryModule:GetBinary(num, bits)
      local BitsList = {}
 
      for b = bits, 1, -1 do
-          BitsList[b] = math.fmod(num, 2)
+          local Bit = math.fmod(num, 2)
+          BitsList[b] = Bit == Bit and Bit or 0
 
           num = math.floor((num - BitsList[b]) / 2)
      end
@@ -37,6 +38,7 @@ function BinaryModule:GetBinary(num, bits)
      local BinString = table.concat(BitsList, "")
      return string.sub(BinString, 1, bits)
 end
+
 
 --[[
 	Chunks the given binary number into smaller binary numbers with the given amount of bits.
@@ -66,7 +68,6 @@ function BinaryModule:ChunkBinary(bin, bits, padding)
 
      return Chunks
 end
-
 
 --[[
 	Converts the given binary string to a number.
