@@ -1,7 +1,7 @@
 local EncryptionModule = require("Contents.EncryptionModule")
 
 local Message = "Hello, world!"
-local Key = EncryptionModule.GetKey()
+local Key = EncryptionModule.GenerateKey()
 
 local Encrypted = EncryptionModule:Encrypt(Message, Key)
 local Decrypted = EncryptionModule:Decrypt(Encrypted, Key)
