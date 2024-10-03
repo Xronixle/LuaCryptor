@@ -10,6 +10,7 @@ local BinaryModule = {}
 	Returns how many bits are needed to represent the given number.
 ]]
 function BinaryModule:GetBitSize(num)
+     num = math.max(num, 1)
      return math.floor(math.log(num, 2)) + 1
 end
 
@@ -23,7 +24,7 @@ function BinaryModule:GetBinary(num, bits)
      local BitsFound = BinaryModule:GetBitSize(num)
 	local CalculatedBits = math.max(BitsFound, 1)
 
-     bits = bits or 0
+     bits = bits or 1
      bits = bits >= CalculatedBits and bits or CalculatedBits
 
      local BitsList = {}
