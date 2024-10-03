@@ -168,7 +168,7 @@ end
 
 --[[
      Performs deobfuscation on the given obfuscated data with the given key.
-     If the key is same key that was used for obfuscation, it'll return the correct result.
+     If the key is the same key that was used for obfuscation, it'll return the correct result.
 ]]
 function EncryptionModule:Decrypt(encData, key)
      if EncryptionModule:IsValidData(encData) then else
