@@ -2,31 +2,6 @@
 local CharacterHandler = require("Contents.CharacterHandler")
 
 
--- Private functions
-local function Frexp(num) -- Why is it deprecated why why why
-     if num == 0 then
-          return 0, 0
-     elseif num < 0 then
-          local f, e = Frexp(-num)
-          return -f, -e
-     end
-
-     local m, e = num, 0
-
-     while m >= 2 do
-          m = m / 2
-          e = e + 1
-     end
-
-     while m < 0.5 do
-          m = m * 2
-          e = e - 1
-     end
-
-     return m, e
-end
-
-
 -- Module Data
 local BinaryModule = {}
 
@@ -38,14 +13,15 @@ function BinaryModule:GetBitSize(num)
      return math.floor(math.log(num, 2)) + 1
 end
 
+
 --[[
 	Converts the given number into a binary string.
 ]]
 function BinaryModule:GetBinary(num, bits)
      local Binary = ""
 
-     local _, Exp = Frexp(num)
-	local CalculatedBits = math.max(1, Exp)
+     local BitsFound = BinaryModule:GetBitSize(num)
+	local CalculatedBits = math.max(BitsFound, 1)
 
      bits = bits or 0
      bits = bits >= CalculatedBits and bits or CalculatedBits
@@ -91,6 +67,7 @@ function BinaryModule:ChunkBinary(bin, bits, padding)
      return Chunks
 end
 
+
 --[[
 	Converts the given binary string to a number.
 ]]
@@ -112,5 +89,6 @@ function BinaryModule:BinaryToNumber(bin)
 
      return Num
 end
+
 
 return BinaryModule
