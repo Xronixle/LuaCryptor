@@ -30,11 +30,11 @@ local EncryptionModule = {}
 
 
 --[[
-     Used mainly to generate a key that is used to encrypt and decrypt data in other functions this module has.
+     Generates a key that is used to encrypt and decrypt data in other functions this module has.
      The "data" parameter can be anything, but it will be converted into a string to create a key number.
      NOTE: keys generated with a data parameter WILL NEVER BE NEGATIVE! You should probably handle if a key is positive or negative using data yourself for better security.
 ]]
-function EncryptionModule.GetKey(data)
+function EncryptionModule.GenerateKey(data)
      local Key = 0
 
      if data ~= nil then
@@ -168,7 +168,7 @@ end
 
 --[[
      Performs deobfuscation on the given obfuscated data with the given key.
-     If the key is the same key that was used for obfuscation, it'll return the correct result.
+     If the key is same key that was used for obfuscation, it'll return the correct result.
 ]]
 function EncryptionModule:Decrypt(encData, key)
      if EncryptionModule:IsValidData(encData) then else

@@ -10,7 +10,7 @@ local Keys = {}
 local EncryptStart = os.clock()
 local EncryptedMessage = Message
 for i = 1, Calls, 1 do
-     local NewKey = EncryptionModule.GetKey()
+     local NewKey = EncryptionModule.GenerateKey()
      EncryptedMessage = EncryptionModule:Encrypt(EncryptedMessage, NewKey)
 
      Keys[i] = NewKey
